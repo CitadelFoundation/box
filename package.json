@@ -1,6 +1,6 @@
 {
   "name": "@citadelfoundation/box",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "The sovereign runtime. Your machine, your rules. Zero-trust microVM.",
   "type": "module",
   "bin": {
