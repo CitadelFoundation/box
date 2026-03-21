@@ -1,6 +1,6 @@
 {
   "name": "@citadelfoundation/box",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "The sovereign runtime. Your machine, your rules. Zero-trust microVM.",
   "type": "module",
   "bin": {
@@ -18,7 +18,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/CitadelFoundation/box"
+    "url": "git+https://github.com/CitadelFoundation/box.git"
   },
   "homepage": "https://github.com/CitadelFoundation/box#readme",
   "bugs": "https://github.com/CitadelFoundation/box/issues",
