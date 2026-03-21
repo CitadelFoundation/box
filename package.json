@@ -1,0 +1,24 @@
+{
+  "name": "@citadelfoundation/box",
+  "version": "0.0.1",
+  "description": "The sovereign runtime. Your machine, your rules. Zero-trust microVM.",
+  "type": "module",
+  "bin": {
+    "box": "./bin/index.js"
+  },
+  "scripts": {
+    "start": "node ./bin/index.js"
+  },
+  "keywords": [
+    "runtime",
+    "microvm",
+    "sovereign",
+    "zero-trust",
+    "local"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CitadelFoundation/box"
+  },
+  "license": "TBD"
+}
