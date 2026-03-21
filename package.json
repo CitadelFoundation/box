@@ -20,5 +20,8 @@
     "type": "git",
     "url": "https://github.com/CitadelFoundation/box"
   },
-  "license": "TBD"
+  "homepage": "https://github.com/CitadelFoundation/box#readme",
+  "bugs": "https://github.com/CitadelFoundation/box/issues",
+  "license": "TBD",
+  "files": ["bin", "README.md"],
 }
