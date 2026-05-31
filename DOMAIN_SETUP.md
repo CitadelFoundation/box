@@ -11,8 +11,18 @@ curl -fsSL https://citadel.box/install | bash
 
 ## Domain Target
 
-Configure `https://citadel.box/install` to serve the root `install` file from
-this public repository, or redirect to the public raw GitHub URL:
+Preferred setup: enable GitHub Pages for this repository from `main` at `/`,
+then point `citadel.box` at the GitHub Pages target. The checked-in `CNAME`
+file binds the Pages site to:
+
+```text
+citadel.box
+```
+
+With Pages enabled, `https://citadel.box/install` serves the root `install` file
+from this repository. If the primary `citadel.box` site must remain hosted by a
+separate app, configure that app or edge router to redirect only `/install` to
+the public raw GitHub URL:
 
 ```text
 https://raw.githubusercontent.com/CitadelFoundation/box/refs/heads/main/install
@@ -20,6 +30,31 @@ https://raw.githubusercontent.com/CitadelFoundation/box/refs/heads/main/install
 
 This mirrors the public raw-GitHub bootstrap pattern used by installers such as
 opencode, while keeping Box release artifacts and manifests in this repository.
+
+Raw GitHub URL format:
+
+```text
+https://raw.githubusercontent.com/CitadelFoundation/box/<branch_name>/<file_name>.<extension_name>
+```
+
+## GitHub Pages Setup
+
+Required repository setup:
+
+1. Enable GitHub Pages for `CitadelFoundation/box`.
+2. Set the Pages source to branch `main`, path `/`.
+3. Keep `.nojekyll` committed so installer and release files are served
+   verbatim.
+4. Keep `CNAME` committed with `citadel.box`.
+
+DNS target:
+
+```text
+citadel.box -> CitadelFoundation.github.io
+```
+
+If the DNS provider cannot CNAME the zone apex directly, use ALIAS/ANAME/CNAME
+flattening or GitHub Pages A/AAAA records for the zone apex.
 
 ## Public Release Paths
 

@@ -10,8 +10,9 @@ Public install target:
 curl -fsSL https://citadel.box/install | bash
 ```
 
-`https://citadel.box/install` should point to the public bootstrap file in this
-repository:
+`https://citadel.box/install` should be served from this repository through
+GitHub Pages. If the primary site remains hosted elsewhere, the `/install` path
+may instead redirect to the public raw GitHub bootstrap:
 
 ```text
 https://raw.githubusercontent.com/CitadelFoundation/box/refs/heads/main/install
