@@ -1,59 +1,48 @@
-# Box Runtime
+# Box Package
 
-The sovereign runtime. Your machine, your rules. Zero-trust microVM.
+This repository is reserved for the public `@citadelfoundation/box` npm/Bun
+package shim.
 
-## Install
+The public curl installer site and release distribution payload live in
+[CitadelFoundation/citadel.box](https://github.com/CitadelFoundation/citadel.box).
+Installer files such as `install`, `CNAME`, `.nojekyll`, and `releases/box/**`
+do not belong in this package repository.
 
-Public install target:
+## Status
+
+The package command is a placeholder while the public installer and release
+pipeline are finalized.
+
+Future intent:
+
+```bash
+bunx @citadelfoundation/box install
+```
+
+That command should consume the same signed public release manifest used by:
 
 ```bash
 curl -fsSL https://citadel.box/install | bash
 ```
 
-`https://citadel.box/install` should be served from this repository through
-GitHub Pages. If the primary site remains hosted elsewhere, the `/install` path
-may instead redirect to the public raw GitHub bootstrap:
+## Package
 
-```text
-https://raw.githubusercontent.com/CitadelFoundation/box/refs/heads/main/install
+Current package entrypoint:
+
+```bash
+box
 ```
 
-That bootstrap discovers the Box release manifest, verifies the downloaded
-artifact checksum, materializes the release under the local Citadel app install
-directory, and then runs the Box installer from that durable location.
+At this stage it only prints a placeholder message.
 
-## Release Channel
+## Release Boundary
 
-The stable public channel is expected at:
+- `CitadelFoundation/box`: npm/Bun package shim.
+- `CitadelFoundation/citadel.box`: GitHub Pages installer distribution.
+- `CitadelFoundation/box-stage`: private Box source, release automation, and
+  product proof workflows.
 
-```text
-https://raw.githubusercontent.com/CitadelFoundation/box/refs/heads/main/releases/box/stable/manifest.json
-```
-
-Versioned release files live under:
-
-```text
-releases/box/<version>/
-```
-
-Release operations, DNS handoff, and lab proof instructions live in the private
-Box source release packet. They are not published in this public distribution
-repository.
-
-Do not publish a placeholder manifest or artifact. A public install is ready
-only when the manifest points at a real release artifact with a matching SHA-256
-digest. Signed manifests and notarized macOS artifacts are still required before
-this should be advertised as a public production installer.
-
-## Private Beta
-
-Private beta installs may still use the private Box source workflow, GitHub
-Packages, or an explicit release source override. Those are not the public
-`citadel.box/install` contract.
-
-## Status
-
-Bootstrap target seeded. Stable public release packet pending.
+Do not publish generated installer artifacts from this repository.
 
 ## License
 
