@@ -35,6 +35,9 @@ Versioned release packets live under:
 releases/box/<version>/
 ```
 
+See [DOMAIN_SETUP.md](./DOMAIN_SETUP.md) for the DNS, hosting, release, and
+lab-proof handoff that an external setup agent must follow.
+
 Do not publish a placeholder manifest or artifact. A public install is ready
 only when the manifest points at a real release artifact with a matching SHA-256
 digest. Signed manifests and notarized macOS artifacts are still required before
