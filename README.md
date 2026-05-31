@@ -30,14 +30,15 @@ The stable public channel is expected at:
 https://raw.githubusercontent.com/CitadelFoundation/box/refs/heads/main/releases/box/stable/manifest.json
 ```
 
-Versioned release packets live under:
+Versioned release files live under:
 
 ```text
 releases/box/<version>/
 ```
 
-See [DOMAIN_SETUP.md](./DOMAIN_SETUP.md) for the DNS, hosting, release, and
-lab-proof handoff that an external setup agent must follow.
+Release operations, DNS handoff, and lab proof instructions live in the private
+Box source release packet. They are not published in this public distribution
+repository.
 
 Do not publish a placeholder manifest or artifact. A public install is ready
 only when the manifest points at a real release artifact with a matching SHA-256
