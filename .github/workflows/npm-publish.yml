@@ -1,16 +1,17 @@
-name: Publish to npm
+name: Publish beta to npm
 
 on:
   push:
     tags:
-      - 'v*'
+      - 'v*-beta*'
 
 permissions:
-  id-token: write  # Required for OIDC trusted publishing
+  id-token: write
   contents: read
 
 jobs:
   publish:
+    name: publish beta
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -26,19 +27,31 @@ jobs:
           node-version: '22'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Upgrade npm
+      - name: Upgrade npm for trusted publishing
         run: npm install -g npm@^11.5.1
 
       - name: Show npm version
         run: npm --version
 
-      - name: Install bun
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
+      - name: Run focused tests
+        run: npm test
 
-      - name: Install dependencies
-        run: bun install
+      - name: Verify tag matches package version
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          test "${GITHUB_REF_NAME}" = "v${VERSION}"
 
-      - name: Publish to npm
-        run: npm publish --access public
+      - name: Verify installer bootstrap is packaged
+        run: |
+          test -f installer/install_box.sh
+          test -r installer/install_box.sh
+          npm pack --json > pack.json
+          TARBALL=$(node -e "console.log(require('./pack.json')[0].filename)")
+          tar -tf "$TARBALL" | grep -qx 'package/installer/install_box.sh'
+          rm -f "$TARBALL" pack.json
+
+      - name: Validate package contents
+        run: npm pack --dry-run
+
+      - name: Publish beta to npm
+        run: npm publish --access public --tag beta
