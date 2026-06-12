@@ -7,7 +7,7 @@ The sovereign runtime. Your machine, your rules. Zero-trust microVM.
 The private beta is distributed through npm:
 
 ```bash
-npm i -g @citadelfoundation/box@beta
+bun i -g @citadelfoundation/box@beta
 box install
 ```
 
