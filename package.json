@@ -1,13 +1,15 @@
 {
   "name": "@citadelfoundation/box",
-  "version": "0.0.6",
-  "description": "The sovereign runtime. Your machine, your rules. Zero-trust microVM.",
+  "version": "0.1.0-beta.1",
+  "description": "Private beta bootstrap for the Citadel Box local runtime.",
   "type": "module",
   "bin": {
     "box": "./bin/index.js"
   },
   "scripts": {
-    "start": "node ./bin/index.js"
+    "start": "node ./bin/index.js",
+    "test": "node --test test/*.test.js",
+    "pack:dry-run": "npm pack --dry-run"
   },
   "keywords": [
     "runtime",
@@ -23,5 +25,12 @@
   "homepage": "https://github.com/CitadelFoundation/box#readme",
   "bugs": "https://github.com/CitadelFoundation/box/issues",
   "license": "TBD",
-  "files": ["bin", "README.md"]
+  "engines": {
+    "node": ">=20"
+  },
+  "files": [
+    "bin",
+    "installer",
+    "README.md"
+  ]
 }
